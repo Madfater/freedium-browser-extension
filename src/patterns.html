@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Manage URL Patterns - Open in Freedium</title>
+    <link rel="stylesheet" href="patterns.css" />
+  </head>
+  <body>
+    <div class="page-header">
+      <span class="page-title">Manage URL Patterns</span>
+    </div>
+
+    <div id="patternList" class="pattern-list"></div>
+    <div id="patternListInfo" class="pattern-list-info"></div>
+
+    <div class="add-row">
+      <input
+        type="text"
+        id="addInput"
+        class="add-input"
+        placeholder="*://*.example.com/*"
+      />
+      <button id="btnAdd" class="btn-add">+ Add</button>
+    </div>
+    <div id="addError" class="error-msg"></div>
+
+    <div class="examples">
+      <div class="examples-title">Examples:</div>
+      <code>*://example.com/*</code>
+      <code>*://*.example.com/*</code>
+      <code>*://*.example.com/articles/*</code>
+    </div>
+
+    <script src="patterns.js"></script>
+  </body>
+</html>

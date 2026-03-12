@@ -1,32 +1,27 @@
 @ECHO OFF
 
 ECHO Creating directories...
-if not exist "%CD%\temp" mkdir "%CD%\temp"
-if not exist "%CD%\firefox" mkdir "%CD%\firefox"
+if not exist "%CD%\temp\src" mkdir "%CD%\temp\src"
+if not exist "%CD%\temp\icons" mkdir "%CD%\temp\icons"
 if not exist "%CD%\chrome" mkdir "%CD%\chrome"
 
 ECHO Cleaning directories...
-DEL /q temp\*.*
-DEL /q firefox\*.*
-DEL /q chrome\*.*
+DEL /q /s temp\*.* >nul 2>&1
+DEL /q chrome\*.* >nul 2>&1
 
-ECHO Copying Firefox files...
-COPY /y *.js temp\
-COPY /y *.png temp\
-COPY /y *.html temp\
-COPY /y manifest-v2.json temp\manifest.json
-
-ECHO Creating freedium-browser-extension.xpi...
-7z a -tzip firefox\freedium-browser-extension.xpi "%CD%\temp\*"
-
-ECHO Copying Chrome files...
-COPY /y *.js chrome\
-COPY /y *.png chrome\
-COPY /y *.html chrome\
-COPY /y manifest-v3-chrome.json chrome\manifest.json
-COPY /y manifest-v3-chrome.json temp\manifest.json
+ECHO Copying files...
+COPY /y manifest.json temp\
+COPY /y src\*.js temp\src\
+COPY /y src\*.css temp\src\
+COPY /y src\*.html temp\src\
+COPY /y icons\*.png temp\icons\
 
 ECHO Creating freedium-browser-extension.zip...
-7z a -tzip chrome\freedium-browser-extension.zip "%CD%\temp\*"
+cd temp
+7z a -tzip ..\chrome\freedium-browser-extension.zip *
+cd ..
+
+ECHO Cleaning temp...
+RMDIR /s /q temp
 
 ECHO Done!

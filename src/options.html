@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Open in Freedium - Options</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <!-- Freedium Domain -->
+    <div class="section">
+      <div class="section-label">Freedium Domain</div>
+      <div class="domain-row">
+        <input
+          type="text"
+          id="domainInput"
+          class="domain-input"
+          placeholder="https://freedium-mirror.cfd"
+        />
+        <button id="btnReset" class="btn-reset">Reset</button>
+      </div>
+    </div>
+
+    <!-- Filter Mode -->
+    <div class="section">
+      <div class="section-label">Filter Mode</div>
+      <div class="segmented-control">
+        <button class="segment-btn active" data-mode="whitelist">Whitelist</button>
+        <button class="segment-btn" data-mode="blacklist">Blacklist</button>
+      </div>
+      <div id="modeHint" class="mode-hint">
+        Show context menu only on medium.com and matching URLs
+      </div>
+    </div>
+
+    <!-- URL Patterns -->
+    <div class="section">
+      <div class="pattern-header">
+        <div>
+          <div class="section-label" style="margin-bottom: 0">URL Patterns</div>
+          <div id="patternCount" class="pattern-count">No custom patterns</div>
+        </div>
+        <div class="pattern-actions">
+          <button id="btnAddDomain" class="btn-add-domain">+ Add current domain</button>
+          <button id="btnManage" class="btn-manage">Manage &gt;</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="options.js"></script>
+  </body>
+</html>

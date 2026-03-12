@@ -1,4 +1,5 @@
 *.xpi
+*.zip
 chrome/
 firefox/
 temp/
